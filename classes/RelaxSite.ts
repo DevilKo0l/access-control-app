@@ -40,15 +40,15 @@ class RelaxSite implements RelaxCentre {
         return zoneName;
     }
     
-    findCard(cardId: number): Card{
+    findCard(cardId: number): CardBuilder{
         return Zone;
     }
 
-    move(card: Card, doorNumber: number): string {
+    move(card: CardBuilder, doorNumber: number): string {
         return card + " " + doorNumber;
     }
 
-    canMove(card: Card, door: Door): boolean {
+    canMove(card: CardBuilder, door: Door): boolean {
         return false;
     }
     
@@ -60,7 +60,7 @@ class RelaxSite implements RelaxCentre {
         return this.totalCards;
     }
     
-    moveToOutside(card: Card): void {}
+    moveToOutside(card: CardBuilder): void {}
 
     moveAllToOutside(): void {}
 }

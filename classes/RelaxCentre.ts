@@ -19,7 +19,7 @@ interface RelaxCentre {
   /**
    * @param {Card} card - Card to be added
    **/
-  addCard: (card: Card) => void;
+  addCard: (card: CardBuilder) => void;
 
   /**
    * @param {Door} door - door to be added
@@ -54,7 +54,7 @@ interface RelaxCentre {
    * card is requesting to move
    * @return {string} - a string describing the result of the request
    **/
-  move: (card: Card, doorNumber: number) => string;
+  move: (card: CardBuilder, doorNumber: number) => string;
 
   /**
    * Returns true if a card is allowed to move through a door,
@@ -67,7 +67,7 @@ interface RelaxCentre {
    * @param {Door} door - is the door through which the card is requesting to move
    * @return {boolean} true if a card is allowed through a door, false otherwise
    **/
-  canMove: (card: Card, door: Door) => boolean;
+  canMove: (card: CardBuilder, door: Door) => boolean;
 
   /**
    *  Returns a string representation of all the cards in the specified zone
@@ -86,7 +86,7 @@ interface RelaxCentre {
    * Moves a specified card to the outside zone
    * @param {Card} card - the card to be moved to the outside
    **/
-  moveToOutside: (card: Card) => void;
+  moveToOutside: (card: CardBuilder) => void;
 
   /**
    * Moves all cards into the outside zone

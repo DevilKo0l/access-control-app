@@ -1,22 +1,21 @@
-class LoyaltyCard {
-    private static currentId = 1000;
-    private loyaltyPoints: number; 
-  
-    // /**
-    //  * Constructor for a Member's card
-    //  * @param {string} membershipNumber
-    //  * @param {string} memberName - member's name
-    //  * @param {number} rating - member's rating
-    //  * @param {number} credits - inital number of credits
-    //  * @param {string} centre - centre at which a member is registered
-    //  */
+class LoyaltyCard implements CardBuilder {
+    private static currentId = 2000;
+    private cardId: number;    
+    private loyaltyPoints: number;   
+    
     constructor(    
+      private numbershipNumber: number,
       private memberName: string,
       private rating: number,
-      private credits: number,
-      private centre: string
+      private credits: number   
+          
     ) {
-      this.cardId = MemberCard.currentId++;
+      this.memberName = memberName;
+      this.rating = rating;
+      this.credits = credits;            
+      this.cardId = LoyaltyCard.currentId++;
+      this.loyaltyPoints = 20;      
+      
     }
     creditNumber(): number {
       throw new Error("Method not implemented.");
@@ -43,6 +42,7 @@ class LoyaltyCard {
    
     public useZone = (): void => {
       this.credits -= 4;
+      this.loyaltyPoints += 2;
     };
   
    
@@ -62,8 +62,8 @@ class LoyaltyCard {
       this.rating +
       "\nCredits: " +
       this.credits +
-      "\nRelax Centre : " +
-      this.centre +
+      "\nLoyalty Points: " +
+      this.loyaltyPoints +
       "\n";
   }
   

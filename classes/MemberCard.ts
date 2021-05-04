@@ -1,22 +1,15 @@
-class MemberCard extends Card {
-  private static currentId = 1000;
+class MemberCard implements CardBuilder {
+  private static currentId = 1000;  
   private cardId: number; 
-
-  // /**
-  //  * Constructor for a Member's card
-  //  * @param {string} membershipNumber
-  //  * @param {string} memberName - member's name
-  //  * @param {number} rating - member's rating
-  //  * @param {number} credits - inital number of credits
-  //  * @param {string} centre - centre at which a member is registered
-  //  */
-  constructor(    
-    memberName: string,
-    rating: number,
-    credits: number,
+  
+  constructor(
+    private memberName: string,
+    private rating: number,
+    private credits: number,
     private centre: string
   ) {
-    super(memberName, rating, credits)
+    this.rating = rating;
+    this.credits = credits;
     this.cardId = MemberCard.currentId++;
     this.centre = centre;
   }
