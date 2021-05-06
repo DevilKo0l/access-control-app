@@ -67,7 +67,8 @@ interface RelaxCentre {
    * @param {Door} door - is the door through which the card is requesting to move
    * @return {boolean} true if a card is allowed through a door, false otherwise
    **/
-  canMove: (card: Card, door: Door) => boolean;
+  canMove: (card: Card, door: Door) => boolean
+
 
   /**
    *  Returns a string representation of all the cards in the specified zone

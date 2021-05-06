@@ -27,13 +27,23 @@ class Zone {
     public getRating = (): number => this.rating;
     public getNumberOfPeople = (): number => this.cards.length;
     public hasCard = (cardId: number): boolean => this.cards.some(c=>c.getId() === cardId);
-
+    
     public addCard = (card: Card): boolean => {
         if(!this.isCardAllowToEnter(card))
             return false;
         this.cards.push(card);
         return true;
     }
+
+    public showListOfCard = (): string =>{
+        let cards = ""
+        for(let card of this.cards)
+        {
+            cards+=card.toString()+"\n \n"
+        }
+        return cards;
+    }
+    
 
     public isCardAllowToEnter = (card: Card): boolean => 
     !(this.cards.length+1>this.capacity)&& 

@@ -46,8 +46,8 @@ class RelaxSite implements RelaxCentre {
         return Zone;
     }
 
-    move(card: Card, doorNumber: number): string {
-        return card + " " + doorNumber;
+    move(card: Card, doorNumber: number): string{
+       
     }
 
     canMove(card: Card, door: Door): boolean {
