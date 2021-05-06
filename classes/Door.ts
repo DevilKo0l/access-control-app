@@ -4,4 +4,18 @@
  * the destination zone
  *
  */
-class Door {}
+class Door {
+    constructor(
+        private sourceZone: Zone,
+        private destinationZone: Zone,
+        private doorNumber: number
+    ){
+        this.destinationZone = destinationZone;
+        this.sourceZone = sourceZone;
+        this.doorNumber = doorNumber;
+    }
+
+    public getSourceZone = ():Zone => this.sourceZone;
+    public getDestinationZone = ():Zone => this.sourceZone;
+    public getDoorNumber = (): number => this.doorNumber;
+}
