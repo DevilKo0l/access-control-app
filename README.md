@@ -19,5 +19,14 @@ This is an example of how to list things you need to use the software and how to
    ```
 2. Install NPM packages
    ```sh
-   npm install
+   npm install -g expo-cli yarn
    ```
+3. Install yarn package
+    ```sh
+   yarn install
+   ```
+4. Launch application
+    ```sh
+   yarn web
+   ```
+
