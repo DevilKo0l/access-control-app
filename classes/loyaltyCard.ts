@@ -1,4 +1,4 @@
-class LoyaltyCard implements CardBuilder {
+class LoyaltyCard implements Card {
     private static currentId = 2000;
     cardId: number;    
     private loyaltyPoints: number;   

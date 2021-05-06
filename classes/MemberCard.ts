@@ -1,4 +1,4 @@
-class MemberCard implements CardBuilder {
+class MemberCard implements Card {
   private static currentId = 1000;  
   cardId: number; 
   

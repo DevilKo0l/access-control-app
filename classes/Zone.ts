@@ -9,7 +9,7 @@
 
 class Zone {
 
-    private cards: CardBuilder[] = [];
+    private cards: Card[] = [];
 
     constructor(
         private name: string,
@@ -25,8 +25,18 @@ class Zone {
     public getName = (): string => this.name;
     public getCapacity = (): number => this.capacity;
     public getRating = (): number => this.rating;
-    
+    public getNumberOfPeople = (): number => this.cards.length;
+    public hasCard = (cardId: number): boolean => this.cards.some(c=>c.getId() === cardId);
 
+    public addCard = (card: Card): boolean => {
+        if(!this.isCardAllowToEnter(card))
+            return false;
+        this.cards.push(card);
+        return true;
+    }
 
-
+    public isCardAllowToEnter = (card: Card): boolean => 
+    !(this.cards.length+1>this.capacity)&& 
+    !(this.getRating() > card.getRating())&&
+    !this.cards.includes(card);
 }

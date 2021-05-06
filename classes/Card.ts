@@ -1,4 +1,4 @@
-interface CardBuilder {
+interface Card {
     cardId: number;
     hasEnoughCredits(): boolean;
     useZone(): void;

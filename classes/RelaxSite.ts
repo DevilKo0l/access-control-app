@@ -46,11 +46,11 @@ class RelaxSite implements RelaxCentre {
         return Zone;
     }
 
-    move(card: CardBuilder, doorNumber: number): string {
+    move(card: Card, doorNumber: number): string {
         return card + " " + doorNumber;
     }
 
-    canMove(card: CardBuilder, door: Door): boolean {
+    canMove(card: Card, door: Door): boolean {
         return false;
     }
     
@@ -62,7 +62,7 @@ class RelaxSite implements RelaxCentre {
         return this.totalCards;
     }
     
-    moveToOutside(card: CardBuilder): void {}
+    moveToOutside(card: Card): void {}
 
     moveAllToOutside(): void {}
 }
