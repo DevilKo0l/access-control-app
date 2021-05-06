@@ -24,6 +24,9 @@ class Zone {
 
     public getName = (): string => this.name;
     public getCapacity = (): number => this.capacity;
+    public getRating = (): number => this.rating;
+    
+
 
 
 }
