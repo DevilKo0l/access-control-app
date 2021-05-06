@@ -1,6 +1,6 @@
-class MemberCard implements CardBuilder {
+class MemberCard implements Card {
   private static currentId = 1000;  
-  private cardId: number; 
+  cardId: number; 
   
   constructor(
     private memberName: string,
@@ -13,10 +13,6 @@ class MemberCard implements CardBuilder {
     this.cardId = MemberCard.currentId++;
     this.centre = centre;
   }
-  creditNumber(): number {
-    throw new Error("Method not implemented.");
-  }
-
  
   public getName = (): string => this.memberName;
 
