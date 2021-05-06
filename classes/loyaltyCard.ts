@@ -1,10 +1,9 @@
 class LoyaltyCard implements CardBuilder {
     private static currentId = 2000;
-    private cardId: number;    
+    cardId: number;    
     private loyaltyPoints: number;   
     
-    constructor(    
-      private numbershipNumber: number,
+    constructor(  
       private memberName: string,
       private rating: number,
       private credits: number   

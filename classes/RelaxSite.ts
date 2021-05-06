@@ -7,6 +7,8 @@ RelaxSite class is capable of storing
 This RelaxSite class implements the enclosed RelaxCentre interface.
 */
 
+import { Card } from "react-native-elements/dist/card/Card";
+
 class RelaxSite implements RelaxCentre {
     public centreName: string;
     public zoneName: string;
@@ -40,7 +42,7 @@ class RelaxSite implements RelaxCentre {
         return zoneName;
     }
     
-    findCard(cardId: number): CardBuilder{
+    findCard(cardId: number): Card{
         return Zone;
     }
 

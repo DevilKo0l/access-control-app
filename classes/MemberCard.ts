@@ -1,6 +1,6 @@
 class MemberCard implements CardBuilder {
   private static currentId = 1000;  
-  private cardId: number; 
+  cardId: number; 
   
   constructor(
     private memberName: string,

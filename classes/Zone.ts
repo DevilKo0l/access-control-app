@@ -7,4 +7,23 @@
  * say how many people(cards) are in the zone and who they are.
  */
 
-class Zone {}
+class Zone {
+
+    private cards: CardBuilder[] = [];
+
+    constructor(
+        private name: string,
+        private capacity: number,
+        private rating: number
+    )
+    {
+        this.name = name;
+        this.capacity = capacity;
+        this.rating = rating;
+    }
+
+    public getName = (): string => this.name;
+    public getCapacity = (): number => this.capacity;
+
+
+}
