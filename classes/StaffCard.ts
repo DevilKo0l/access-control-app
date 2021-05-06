@@ -1,4 +1,4 @@
-class StaffCard implements CardBuilder {
+class StaffCard implements Card {
     private static currentId = 50000;
     cardId: number;
     private fitnessScore = 0;
