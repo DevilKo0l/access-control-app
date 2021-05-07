@@ -1,6 +1,6 @@
-class StaffCard implements CardBuilder {
+class StaffCard implements Card {
     private static currentId = 50000;
-    private cardId: number;
+    cardId: number;
     private fitnessScore = 0;
   
     constructor(    
@@ -25,7 +25,8 @@ class StaffCard implements CardBuilder {
     
     public getId = (): number => this.cardId;  
     
-   
+    public getRating = (): number => this.rating;
+    
     public useZone = (): void => {
         this.fitnessScore += 1;
     };
@@ -47,4 +48,3 @@ class StaffCard implements CardBuilder {
       this.fitnessScore +
       "\n";
   }
-  
