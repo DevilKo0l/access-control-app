@@ -28,18 +28,20 @@ class Tester {
         new MemberCard("Joe", 5, 10, "Poznan"),
         new MemberCard("Dan", 12, 1, "Poznan"),
         new MemberCard("Tim", 20, 5, "Poznan"),
-        new MemberCard("Matt", 3, 5, "Poznan")
+        new MemberCard("Matt", 3, 5, "Poznan"),
+        new MemberCard("Ayimkan", 21, 17, "Poznan")
     ]
 
     private testLoyaltyCard: LoyaltyCard[] = [
         new LoyaltyCard("Joe", 5, 10),
         new LoyaltyCard("Dan", 12, 1),
-        new LoyaltyCard("Tim", 20, 5)        
+        new LoyaltyCard("Tugay", 18, 8),      
     ]
 
     private testStaffCard: StaffCard[] = [
         new StaffCard("Pete", null, null),
-        new StaffCard("Chen",  null, null)
+        new StaffCard("Chen",  null, null),
+        new StaffCard("Nguyen", null, null)
     ]
 
     createTestCentre(): void{
