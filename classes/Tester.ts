@@ -2,8 +2,6 @@
 and adds them to a variable with the type of RelaxCentre – which is in fact an object
 of the RelaxSite class and represents the whole Relax leisure centre*/
 
-import { Card } from "react-native-elements/dist/card/Card";
-
 class Tester {
 
     testRelaxCentre: RelaxCentre;
