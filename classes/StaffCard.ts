@@ -1,19 +1,18 @@
 class StaffCard implements Card {
-    private static currentId = 50000;
+    private static currentId = 5000;
+    protected rating: number = 10;
+    protected credits: number = 5;
     cardId: number;
-    private fitnessScore = 0;
+    private fitnessScore: number;
   
     constructor(    
         private memberName: string,
-        private rating: number,
-        private credits: number,
-          
+        private staffId: number,        
+        private departmentName: string
     ) {      
-        this.rating = rating;
-        this.credits = credits;
-        this.cardId = StaffCard.currentId++;    
-
-        this.cardId = StaffCard.currentId++;
+        this.departmentName = departmentName;        
+        this.staffId = staffId;
+        this.cardId = StaffCard.currentId++;        
     }
     creditNumber(): number {
       throw new Error("Method not implemented.");
@@ -32,19 +31,19 @@ class StaffCard implements Card {
     };
     
     public hasEnoughCredits = (): boolean => true;
-  
+
+    public getDepartmentName = (): string => this.departmentName;
+    public getStaffId = (): number => this.staffId;  
    
     public toString = (): string =>
       "***Member Card***" +
       "\nCard No: " +
       this.cardId +
       "\nName: " +
-      this.memberName +
-      "\nRating: " +
-      this.rating +
-      "\nCredits: " +
-      this.credits +
-      "\nFitness score: " +
+      this.memberName + 
+      "\n Department name"+
+      this.departmentName+
+      "\nFitness score: " +      
       this.fitnessScore +
       "\n";
   }
