@@ -16,7 +16,7 @@ class Door {
         this.doorNumber = doorNumber;
     }
     public getSourceZone = ():Zone => this.sourceZone;
-    public getDestinationZone = ():Zone => this.sourceZone;
+    public getDestinationZone = ():Zone => this.destinationZone;
     public getDoorNumber = (): number => this.doorNumber;
 }
     

@@ -26,7 +26,6 @@ class Zone {
     public getCapacity = (): number => this.capacity;
     public getRating = (): number => this.rating;
     public getNumberOfPeople = (): number => this.cards.length;
-    public hasCard = (cardId: number): boolean => this.cards.some(c=>c.getId() === cardId);
     
     public addCard = (card: Card): boolean => {
         if(!this.isCardAllowToEnter(card))
@@ -35,18 +34,29 @@ class Zone {
         return true;
     }
 
-    public showListOfCard = (): string =>{
+    public removeCard = (card: Card): boolean => {
+        if(this.isCardInTheZone(card) == false)
+        {
+            return false;
+        }
+
+        const index = this.cards.indexOf(card);
+        this.cards.splice(index,1);
+        return true
+    }
+    public showCards = (): string =>{
         let cards = ""
         for(let card of this.cards)
         {
-            cards+=card.toString()+"\n \n"
+            cards+=card.toString()+"\n"+"\n"
         }
         return cards;
     }
     
+    public isCardInTheZone = (card: Card): boolean => this.cards.includes(card);
 
     public isCardAllowToEnter = (card: Card): boolean => 
-    !(this.cards.length+1>this.capacity)&& 
-    !(this.getRating() > card.getRating())&&
-    !this.cards.includes(card);
+    (this.cards.length+1<this.capacity)&& 
+    (this.getRating() < card.getRating())&&
+    this.cards.includes(card);
 }

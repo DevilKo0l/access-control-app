@@ -1,12 +1,23 @@
 import * as React from 'react'
-import { Text, View } from 'react-native'
+import {Text, View} from 'react-native'
 
-const HomeScreen: React.FC = () => {
+import AdminScreen from './AdminScreen'
+
+
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+
+const Tab = createBottomTabNavigator();
+
+const HomeScreen: React.FC = ()=> {
   return (
-    <View>
-      <Text>Hello World</Text>
-    </View>
+    <Tab.Navigator>
+      <Tab.Screen 
+        name="AdminScreen" 
+        options={{tabBarIcon: () => <text>👱</text>}}
+        component={AdminScreen} />
+      
+    </Tab.Navigator>
   )
 }
-
 export default HomeScreen
