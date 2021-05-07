@@ -13,6 +13,10 @@ class MemberCard implements Card {
     this.cardId = MemberCard.currentId++;
     this.centre = centre;
   }
+  creditNumber(): number {
+    throw new Error("Method not implemented.");
+  }
+
  
   public getName = (): string => this.memberName;
 
