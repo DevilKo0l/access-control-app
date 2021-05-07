@@ -8,31 +8,29 @@ This RelaxSite class implements the enclosed RelaxCentre interface.
 */
 
 class RelaxSite implements RelaxCentre {
-    centreName: string;
-    zoneName: string;
-    cardId: number;
-    doorNumber: number;
+    centreName: string = "Poznan Relax Centre";
+    private zonesList: Zone[] = [new Zone("Outside",1000,0), new Zone("Reception",100,1), new Zone("Pool",10,3),
+                                new Zone("Sauna",2,5), new Zone("Sun Bed",1,1)];
+    private cardsList: Card[] = [];
+    private doorsList: Door[] = [new Door(this.zonesList[0], this.zonesList[1], 0),
+                                new Door(this.zonesList[1], this.zonesList[0], 1),
+                                new Door(this.zonesList[1], this.zonesList[2], 2),
+                                new Door(this.zonesList[2], this.zonesList[1], 3),
+                                new Door(this.zonesList[3], this.zonesList[1], 4),
+                                new Door(this.zonesList[1], this.zonesList[4], 5),
+                                new Door(this.zonesList[4], this.zonesList[1], 6),
+                                new Door(this.zonesList[2], this.zonesList[3], 7)];
 
-    constructor(centreName: string, zoneName: string, private zone: Zone, cardId: number, doorNumber: number,
-                private card: Card, private door: Door, private zonesList: Zone[] = [], private cards: string,
-                private cardsList: Card[] = [], private doorsList: Door[] = []) {
-        this.centreName = centreName;
-        this.zoneName= zone.getName();
-        this.cardId = card.cardId;
-        this.doorNumber = door.getDoorNumber();
+    constructor(private zone: Zone, private card: Card, private door: Door,
+                private cards: string) {
         this.zone = zone;
         this.card = card;
         this.door = door;
-        this.zonesList = zonesList;
         this.cards = zone.showListOfCard();
-        this.doorsList = doorsList;
-        this.cardsList = cardsList;
-
     }
     
     getCentreName(): string {
-        //return this.centreName;
-        return "Poznan Relax Centre";
+        return this.centreName;
     }
 
     addZone(): void {
@@ -40,16 +38,15 @@ class RelaxSite implements RelaxCentre {
     }
 
     addCard(): void{
-        this.zone.addCard(this.card);
+        this.cardsList.push();
     }
 
     addDoor(): void{
         this.doorsList.push();
     }
 
-    findZone(zoneName: string): Zone{
-        return this.zone;
-    }
+    findZone = (zoneName: string): Zone =>
+        this.zonesList.find(zone => zone.getName() === zoneName)!;
     
     findCard(cardId: number): Zone{
         if(this.zone.hasCard(cardId)) {
@@ -62,14 +59,14 @@ class RelaxSite implements RelaxCentre {
         if(this.zone.isCardAllowToEnter(card) == true) {
             console.log("Card ${card} is requesting to enter door ${doornumber}");
         }
-        else if(this.zone.getRating() > card.getRating()) {
-            console.log("The card's rating is lower than the rating of the zone");
+        else if(this.zone.getRating() > this.card.getRating()) {
+            console.log("You can't enter this zone. Update your rating to the higher");
         }
         else if(this.cards.length+1>this.zone.getCapacity()) {
-            console.log("Entry to the destination zone exceeds its maximum capacity");
+            console.log("The zone is full, please come later.");
         }
         else if(this.card.hasEnoughCredits() == false) {
-            console.log("The card does not have enough credits")
+            console.log("Your card does not have enough credits. Please top up your card.")
         }
         //else if(this.card.)
         //Refusal to enter a zone, because card is not listed in the source zone for the door used
@@ -99,7 +96,7 @@ class RelaxSite implements RelaxCentre {
     }
     
     moveToOutside(card: Card): void {
-        this.move(card,1)
+        this.move(card, this.door.getDoorNumber())
     }
 
     moveAllToOutside(): void {
