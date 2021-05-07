@@ -1,5 +1,5 @@
 /**
- * A zone represents an area at a centre. Each zone has a name and a
+ * A zone represents an area at a centre.Each zone has a name and a
  * capacity which represents the maximum number of people who can enter
  * the zone at any one time. Each zone must maintain a list of all cards
  * (and hence members) currently in the zone. These lists are updated
@@ -8,6 +8,7 @@
  */
 
  class Zone {
+
     private cards: Card[] = [];
 
     constructor(
@@ -26,7 +27,7 @@
     public getRating = (): number => this.rating;
     public getNumberOfPeople = (): number => this.cards.length;
     public hasCard = (cardId: number): boolean => this.cards.some(c=>c.getId() === cardId);
-
+    
     public addCard = (card: Card): boolean => {
         if(!this.isCardAllowToEnter(card))
             return false;
@@ -42,9 +43,10 @@
         }
         return cards;
     }
+    
 
     public isCardAllowToEnter = (card: Card): boolean => 
     !(this.cards.length+1>this.capacity)&& 
     !(this.getRating() > card.getRating())&&
     !this.cards.includes(card);
-  }
+}
