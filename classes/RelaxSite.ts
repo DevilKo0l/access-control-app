@@ -9,17 +9,10 @@ This RelaxSite class implements the enclosed RelaxCentre interface.
 
 class RelaxSite implements RelaxCentre {
     centreName: string = "Poznan Relax Centre";
-    private zonesList: Zone[] = [new Zone("Outside",1000,0), new Zone("Reception",100,1), new Zone("Pool",10,3),
-                                new Zone("Sauna",2,5), new Zone("Sun Bed",1,1)];
+    
+    private zonesList: Zone[] = [];
     private cardsList: Card[] = [];
-    private doorsList: Door[] = [new Door(this.zonesList[0], this.zonesList[1], 0),
-                                new Door(this.zonesList[1], this.zonesList[0], 1),
-                                new Door(this.zonesList[1], this.zonesList[2], 2),
-                                new Door(this.zonesList[2], this.zonesList[1], 3),
-                                new Door(this.zonesList[3], this.zonesList[1], 4),
-                                new Door(this.zonesList[1], this.zonesList[4], 5),
-                                new Door(this.zonesList[4], this.zonesList[1], 6),
-                                new Door(this.zonesList[2], this.zonesList[3], 7)];
+    private doorsList: Door[] = [];
 
     constructor(private zone: Zone, private card: Card, private door: Door,
                 private cards: string) {
